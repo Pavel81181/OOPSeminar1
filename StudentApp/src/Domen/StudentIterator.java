@@ -3,6 +3,10 @@ package Domen;
 import java.util.Iterator;
 import java.util.List;
 
+        /**
+         * Реализация класса итератор для студентов
+         */
+
 public class StudentIterator implements Iterator<Student> {
     private int count;
     private List<Student> group;
