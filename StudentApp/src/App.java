@@ -2,9 +2,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import Controllers.AccountContoller;
+import Domen.PersonComparator;
 import Domen.Student;
 import Domen.StudentGroup;
 import Domen.StudentSteam;
+import Domen.Teacher;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -12,7 +15,7 @@ public class App {
         /**
          * Добавляю студентов с именем и возрастом
          */
-       
+
         Student s1 = new Student("Иван", 25);
         Student s2 = new Student("Игорь", 23);
         Student s3 = new Student("Павел", 22);
@@ -26,7 +29,6 @@ public class App {
         Student s11 = new Student("Ольга", 23);
         Student s12 = new Student("Лариса", 24);
 
-        
         /**
          * Добавляю студентов в список
          */
@@ -55,14 +57,15 @@ public class App {
         System.out.println();
 
         /**
-         * Сортировка студентов в группе по возрасту в соответствии с методом компаратор в классе Студент.
+         * Сортировка студентов в группе по возрасту в соответствии с методом компаратор
+         * в классе Студент.
          */
         Collections.sort(group5123.getGroup());
 
         /**
          * Вывод на печать группы и отсортированного списка студентов
          */
-        
+
         System.out.println(group5123);
 
         for (Student s : group5123) {
@@ -98,26 +101,27 @@ public class App {
         StudentSteam steam1 = new StudentSteam(listStudGroup, 1);
 
         /**
-         * Вывод на печать  потока и групп, вместе со списком студентов в группах
+         * Вывод на печать потока и групп, вместе со списком студентов в группах
          * цикл в цикле для вывода номера группы и списка студентов в группе
          */
 
         System.out.println(steam1);
         System.out.println();
-        
+
         for (StudentGroup g : steam1) {
             System.out.println(g);
 
             for (Student s : g) {
                 System.out.println(s);
             }
-             System.out.println();
+            System.out.println();
         }
         /**
-         * Сортировка групп в потоке по возратсанию количества студентов в соответствии с методом компаратор в классе StudentGroup
+         * Сортировка групп в потоке по возратсанию количества студентов в соответствии
+         * с методом компаратор в классе StudentGroup
          */
-        
-         Collections.sort(steam1.getSteam());
+
+        Collections.sort(steam1.getSteam());
 
         /**
          * Вывод на печать отсотрированного потока
@@ -130,8 +134,20 @@ public class App {
             for (Student s : g) {
                 System.out.println(s);
             }
-             System.out.println();
+            System.out.println();
         }
-
+        Teacher t1 = new Teacher("Галина", 55, "Docent");
+        Teacher t2 = new Teacher("Татьяна", 58, "Docent");
+        System.out.println(new PersonComparator<Teacher>().compare(t1, t2));
+        System.out.println(new PersonComparator<Student>().compare(s1, s2));
+        // AccountContoller controller = new AccountContoller();
+        // controller.paySalary(t1, 50000);
+        // controller.paySalary(s1, 50000);
+        AccountContoller.paySalary(t1, 10000);
+        /**
+         * Вызов метода подсчета среднего возвраста для списка студентов
+         */
+        
+        System.out.println("Средний возраст студентов в группе 5213 = " + AccountContoller.averageAge(listStud));
     }
 }
