@@ -138,7 +138,8 @@ public class App {
         }
         Teacher t1 = new Teacher("Галина", 55, "Docent");
         Teacher t2 = new Teacher("Татьяна", 58, "Docent");
-        System.out.println(new PersonComparator<Teacher>().compare(t1, t2));
+        Teacher t3 = new Teacher("Андрей", 40, "Proff");
+        System.out.println(new PersonComparator<Teacher>().compare(t1, t3));
         System.out.println(new PersonComparator<Student>().compare(s1, s2));
         // AccountContoller controller = new AccountContoller();
         // controller.paySalary(t1, 50000);
